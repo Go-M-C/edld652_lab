@@ -9,12 +9,4 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-```{r}
-library(remotes)
-remotes::install_github("datalorax/edld652")
-```
 
-```{r}
-library(edld652)
-list_datasets()
-```
