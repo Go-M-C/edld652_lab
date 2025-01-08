@@ -9,4 +9,13 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+```{r}
+install.packages("remotes")
+library(remotes)
+remotes::install_github("datalorax/edld652", force = TRUE)
+```
+
+```{r}
+library(edld652)
+```
 
