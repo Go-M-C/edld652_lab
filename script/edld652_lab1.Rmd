@@ -1,6 +1,6 @@
 ---
 title: "edld652_lab1"
-author: "Michelle Cui"
+author: "Michelle Cui, Saratessa Palos, and "
 date: "2025-01-08"
 output: html_document
 ---
@@ -10,6 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
+library(remotes)
 remotes::install_github("datalorax/edld652")
 ```
 
