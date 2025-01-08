@@ -22,5 +22,10 @@ library(edld652)
 ```{r}
 library(tidyverse)
 library(here)
+library(rio)
+```
+
+```{r}
+tweets_df <- import(here("data", "rstats_tweets.rds"))
 ```
 
