@@ -9,6 +9,8 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Installing edld652 data package
+
 ```{r}
 install.packages("remotes")
 library(remotes)
@@ -24,6 +26,7 @@ library(tidyverse)
 library(here)
 library(rio)
 ```
+1. Initial exploration
 
 ```{r}
 tweets_df <- import(here("data", "rstats_tweets.rds"))
@@ -34,17 +37,27 @@ tweets_df %>%
   ggplot(aes(display_text_width))+
   geom_histogram(bins = 15, position = position_dodge2())
 ```
+
+2. Look for “plot”
+
 ```{r}
 n_plot <- sum(grepl("plot", tolower(tweets_df$text)))
 n_plot/nrow(tweets_df)
+
 ```
 
+3. Plot rough draft
 
 ```{r}
 library(tidytext)
- tweets_plot <- tweets_df %>%
-   unnest_tokens(text, description)
- tweets_plot
+tweets_words <- tweets_df %>%
+   unnest_tokens(word, description) 
+
+tweets_words %>% 
+  anti_join(stop_words) %>% 
+  count(word, sort = TRUE) %>% 
+  mutate(word = reorder(word, n)) %>% 
+  slice(1:15) %>% 
+  ggplot(aes(n, word)) +
+  geom_col(fill = "lightblue")
 ```
-
-
