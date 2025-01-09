@@ -34,5 +34,17 @@ tweets_df %>%
   ggplot(aes(display_text_width))+
   geom_histogram(bins = 15, position = position_dodge2())
 ```
+```{r}
+n_plot <- sum(grepl("plot", tolower(tweets_df$text)))
+n_plot/nrow(tweets_df)
+```
+
+
+```{r}
+library(tidytext)
+ tweets_plot <- tweets_df %>%
+   unnest_tokens(text, description)
+ tweets_plot
+```
 
 
