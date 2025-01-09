@@ -1,20 +1,22 @@
 ---
 title: "edld652_lab1"
-author: "Michelle Cui, Saratessa Palos, and "
+author: "Michelle Cui, Saratessa Palos, and Maiko Hata"
 date: "2025-01-08"
-output: html_document
+output: 
+  html_document:
+    code_folding: show
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
 ```
 
 Installing edld652 data package
 
 ```{r}
-install.packages("remotes")
-library(remotes)
-remotes::install_github("datalorax/edld652", force = TRUE)
+# install.packages("remotes")
+# library(remotes)
+# remotes::install_github("datalorax/edld652", force = TRUE)
 ```
 
 ```{r}
@@ -46,7 +48,7 @@ n_plot/nrow(tweets_df)
 
 ```
 
-3. Plot rough draft
+3. Plot rough draft & 4. Stylized Plot
 
 ```{r}
 library(tidytext)
@@ -59,5 +61,11 @@ tweets_words %>%
   mutate(word = reorder(word, n)) %>% 
   slice(1:15) %>% 
   ggplot(aes(n, word)) +
-  geom_col(fill = "lightblue")
+  geom_col(fill = "blue", alpha = 0.7 )+
+  labs(title = "Word frequencies in posts",
+       subtitle = "Top 15 words displayed",
+       x = "Count",
+       y = "Word",
+       caption = "Data from Mike Kearny, distributed via #tidytuesday")
+  theme_minimal()
 ```
