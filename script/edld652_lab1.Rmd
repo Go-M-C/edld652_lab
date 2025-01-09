@@ -66,6 +66,6 @@ tweets_words %>%
        subtitle = "Top 15 words displayed",
        x = "Count",
        y = "Word",
-       caption = "Data from Mike Kearny, distributed via #tidytuesday")
+       caption = "Data from Mike Kearny, distributed via #tidytuesday")+
   theme_minimal()
 ```
