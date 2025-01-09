@@ -29,3 +29,10 @@ library(rio)
 tweets_df <- import(here("data", "rstats_tweets.rds"))
 ```
 
+```{r}
+tweets_df %>% 
+  ggplot(aes(display_text_width))+
+  geom_histogram(bins = 15, position = position_dodge2())
+```
+
+
